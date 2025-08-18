@@ -23,4 +23,4 @@ It is developed using **Next.js** and **Tailwind CSS**.
 - [Next.js 14](https://nextjs.org/) – React framework with App Router
 - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
 - [Lucide Icons](https://lucide.dev/) – Modern icons
-- [React Context API](https://react.dev/reference/react/useContext) – Cart state managemen
+- [React Context API](https://react.dev/reference/react/useContext) – Cart state management
