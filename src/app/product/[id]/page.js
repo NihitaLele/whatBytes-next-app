@@ -1,5 +1,4 @@
 import React from "react";
-import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import RatingStars from "@/components/RatingStars";
 import AddToCartButton from "./parts";
