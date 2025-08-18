@@ -8,10 +8,14 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 const Header = () => {
+  const { summary } = useCart();
   const router = useRouter();
   const params = useSearchParams();
   const pathname = usePathname();
   const [q, setQ] = useState(params.get("q") || "");
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => setQ(params.get("q") || ""), [params]);
 
@@ -53,10 +57,18 @@ const Header = () => {
             className="relative inline-flex items-center gap-2 border font-semibold bg-[#002B5A] border-[#002B5A] rounded-md px-5 py-2"
           >
             <ShoppingCart />
-
             <span>Cart</span>
+
+            {mounted && (
+              <span className="badge bg-white text-[#002B5A] rounded-md px-2">
+                {summary.count}
+              </span>
+            )}
           </Link>
-          <button className="border rounded-full bg-[#002B5A] border-[#002B5A] cursor-pointer p-2"><User2 /></button>
+
+          <button className="border rounded-full bg-[#002B5A] border-[#002B5A] cursor-pointer p-2">
+            <User2 />
+          </button>
         </div>
       </div>
     </header>
