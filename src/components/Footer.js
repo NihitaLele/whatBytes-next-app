@@ -19,7 +19,15 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold mb-3 text-[18px]">Follow Us</h3>
           <div className="flex gap-3"> 
-            <Facebook/> <Twitter/> <Instagram/>
+            <div className="bg-[#0851A0] p-2 rounded-full text-white cursor-pointer hover:bg-blue-600">
+              <Facebook size={18} />
+            </div>
+            <div className="bg-[#0851A0] p-2 rounded-full text-white cursor-pointer hover:bg-blue-600">
+              <Twitter size={18} />
+            </div>
+            <div className="bg-[#0851A0] p-2 rounded-full text-white cursor-pointer hover:bg-blue-600">
+              <Instagram size={18} />
+            </div>
          </div>
         </div>
       </div>
