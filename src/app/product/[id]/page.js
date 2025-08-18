@@ -1,19 +1,22 @@
 import React from "react";
+import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import RatingStars from "@/components/RatingStars";
 import AddToCartButton from "./parts";
 
 export function generateStaticParams() {
-  return products.map((p) => ({ id: p.id }));
+  return products.map((p) => ({ id: String(p.id) }));
 }
 
 const ProductDetail = async ({ params }) => {
-  const { id } = await params; 
-  const product = products.find((p) => p.id === id);
+  const { id } = params; 
+  const product = products.find((p) => String(p.id) === id);
+
+  if (!product) return notFound();
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8 mt-4 ">
-      <div className="card p-6 grid place-items-center ">
+    <div className="grid lg:grid-cols-2 gap-8 mt-4">
+      <div className="card p-6 grid place-items-center">
         <img
           src={product.image}
           alt={product.title}
