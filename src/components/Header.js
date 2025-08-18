@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ShoppingCart, Search, User2 } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -10,18 +10,22 @@ import React from "react";
 const Header = () => {
   const { summary } = useCart();
   const router = useRouter();
-  const params = useSearchParams();
   const pathname = usePathname();
-  const [q, setQ] = useState(params.get("q") || "");
 
+  const [q, setQ] = useState("");
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
 
-  useEffect(() => setQ(params.get("q") || ""), [params]);
+  useEffect(() => {
+    setMounted(true);
+    if (typeof window !== "undefined") {
+      const sp = new URLSearchParams(window.location.search);
+      setQ(sp.get("q") || "");
+    }
+  }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const sp = new URLSearchParams(params.toString());
+    const sp = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
     if (q) sp.set("q", q);
     else sp.delete("q");
     router.push(`${pathname}?${sp.toString()}`);
