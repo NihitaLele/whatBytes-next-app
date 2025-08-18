@@ -4,7 +4,8 @@ This project is built as part of the **Frontend Developer Internship Assignment*
 It is developed using **Next.js** and **Tailwind CSS**.
 
 ---
-[Live Demo](https://what-bytes-next-app.vercel.app/)--
+##Live deployment URL
+[whatBytes-next-app](https://what-bytes-next-app.vercel.app/)
 
 ## 🚀 Features
 
