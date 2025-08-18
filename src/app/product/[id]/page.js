@@ -12,8 +12,6 @@ const ProductDetail = async ({ params }) => {
   const { id } = await params; 
   const product = products.find((p) => p.id === id);
 
-  if (!product) return notFound();
-
   return (
     <div className="grid lg:grid-cols-2 gap-8 mt-4 ">
       <div className="card p-6 grid place-items-center ">
