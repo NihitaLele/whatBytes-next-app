@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#0758A8] text-white">
+    <header className="bg-[#0758A8] text-white sticky top-0 z-50 shadow-md">
       <div className="p-4 px-9 flex justify-between items-center gap-4">
         <Link href="/" className="text-3xl font-bold tracking-tight">
           Logo
